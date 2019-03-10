@@ -15,7 +15,7 @@ fn main() -> std::io::Result<()> {
     loop {
         let event = joystick.read()?;
         println!("{:?}", event);
-        if event.action == Action::Pressed {
+        if event.action == Action::Released {
             Command::new("systemctl")
                 .arg("suspend")
                 .spawn()
